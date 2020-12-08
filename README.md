@@ -66,4 +66,4 @@ The result is a "green" response.
 ![Response from post request](/green-response.png)
 
 ## Try it yourself
-This repository has a sample JMeter test plan (JMX) [PostFormTest.jmx](postformtest.jmx) that illustrates how to implement this. In addition is the sample application code that can be used to validate this test script.
+This repository has a sample JMeter test plan (JMX) [FormPostTest.jmx](formposttest.jmx) that illustrates how to implement this. In addition is the sample application code that can be used to validate this test script.

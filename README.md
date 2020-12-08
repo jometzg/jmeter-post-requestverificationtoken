@@ -6,7 +6,7 @@ Web applications that implement cross site request forgery countermeasures often
 This repository shows you how you can amend the requests in JMeter to send the correct token on each form post. It implemnents the adivce in this stack overflow article https://stackoverflow.com/questions/26482314/jmeter-token-value-extraction
 
 ## Sample Application
-The web page
+The web page:
 ```
 <form method="post" enctype="multipart/form-data" asp-controller="Form" asp-action="Index">
     <table>
@@ -26,8 +26,9 @@ The web page
     <hr />
 </form>
 ```
+When this web page gets generated on the web server, an extra field *__RequestVerificationToken * is added to the HTML form which has been generated using a key that resides in the web app. A form POST using this token is required to provide that the POST was from the same site.
 
-The controller
+The controller is decorated with *ValidateAntiForgeryToken* which tells the controller to evaulate whether
 ```
 [HttpPost]
 [ValidateAntiForgeryToken]

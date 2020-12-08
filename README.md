@@ -58,7 +58,7 @@ The solution is to add a POST request *CSS Selector Extractor* to the previous p
 ![CSS Selector Extractor](/css-selector-extractor.png)
 As can be seen above, the selector finds the input field __RequestVerficationToken and then puts its *value* into a variable, which we have named *token*
 
-![Updated post request](/response.png)
+![Updated post request](/response2.png)
 The value of token using the expression ${__V(token)} is applied to the POST request.
 
 The result is a "green" response.

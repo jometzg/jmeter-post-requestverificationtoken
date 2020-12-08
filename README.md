@@ -26,9 +26,9 @@ The web page:
     <hr />
 </form>
 ```
-When this web page gets generated on the web server, an extra field *__RequestVerificationToken * is added to the HTML form which has been generated using a key that resides in the web app. A form POST using this token is required to provide that the POST was from the same site.
+When this web page gets generated on the web server, an extra field "__RequestVerificationToken" is added to the HTML form which has been generated using a key that resides in the web app. A form POST using this token is required to provide that the POST was from the same site.
 
-The controller is decorated with *ValidateAntiForgeryToken* which tells the controller to evaulate whether
+The controller is decorated with *ValidateAntiForgeryToken* which tells the controller to evaulate whether the value of the extra field is correct and if not throws an exception.
 ```
 [HttpPost]
 [ValidateAntiForgeryToken]
@@ -45,3 +45,24 @@ public ActionResult Index(IFormCollection collection)
       }
 }
 ```
+## Load Test Problems
+Load tests generally record a series of HTTP requests and play them back. The __RequestVerificationToken will be sent on any later POST requests, but it will fail the validation and so will be rejected by the web server (quite rightly).
+
+![Rejected request](/rejected-request.png)
+
+So what we need to do is to extract the token from the preceding page and then apply that token to the subsequent POST request.
+
+## The solution
+The solution is to add a POST request *CSS Selector Extractor* to the previous page (the one that generated the HTML form) and then put this value in a variable to then be later used in the next POST request:
+
+![CSS Selector Extractor](/css-selector-extractor.png)
+As can be seen above, the selector finds the input field __RequestVerficationToken and then puts its *value* into a variable, which we have named *token*
+
+![Updated post request](/response.png)
+The value of token using the expression ${__V(token)} is applied to the POST request.
+
+The result is a "green" response.
+![Response from post request](/green-response.png)
+
+## Try it yourself
+This repository has a sample JMeter test plan (JMX) that illustrates how to implement this.

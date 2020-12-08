@@ -1,4 +1,4 @@
-# JMeter how to do POST requests that need a requestverificationtoken
+# JMeter - POST requests with requestverificationtoken
 JMeter is a really useful load testing tool. There is an Azure sample https://github.com/Azure-Samples/jmeter-aci-terraform that allows you to automate the process of creating load test infrastructure using Azure DevOps and Azure Container Instances (ACI).
 
 Web applications that implement cross site request forgery countermeasures often create difficulties when recording test scripts as these merely record and playback the same countermeasure tokens, causing the HTTP POST requests to fail.
@@ -65,4 +65,4 @@ The result is a "green" response.
 ![Response from post request](/green-response.png)
 
 ## Try it yourself
-This repository has a sample JMeter test plan (JMX) that illustrates how to implement this.
+This repository has a sample JMeter test plan (JMX) *sample.jmx* that illustrates how to implement this. In addition is the sample application code that can be used to validate this test script.

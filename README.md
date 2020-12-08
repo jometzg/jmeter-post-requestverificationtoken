@@ -5,7 +5,7 @@ There is an [Azure sample](https://github.com/Azure-Samples/jmeter-aci-terraform
 
 Web applications that implement cross site request forgery countermeasures often create difficulties when recording test scripts as these merely record and playback the same countermeasure tokens, causing the HTTP POST requests to be rejected by the web server.
 
-This repository shows you how you can amend the requests in JMeter to send the correct token on each form POST. It implemnents the advice in this [stack overflow article] (https://stackoverflow.com/questions/26482314/jmeter-token-value-extraction).
+This repository shows you how you can amend the requests in JMeter to send the correct token on each form POST. It implemnents the advice in this [stack overflow article](https://stackoverflow.com/questions/26482314/jmeter-token-value-extraction).
 
 ## Sample Application
 The web page:

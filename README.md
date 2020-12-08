@@ -52,7 +52,7 @@ Load tests generally record a series of HTTP requests and play them back. The __
 
 ![Rejected request](/rejected-request.png)
 
-So what we need to do is to extract the token from the preceding page and then apply that token to the subsequent POST request.
+So what we need to do is to extract the __RequestVerificationToken from the preceding HTML page response and then apply that token to the subsequent POST request.
 
 ## The solution
 The solution is to add a POST request *CSS Selector Extractor* to the previous page (the one that generated the HTML form) and then put this value in a variable to then be later used in the next POST request:
